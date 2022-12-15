@@ -1,21 +1,17 @@
 <?php 
 if(isset($_POST['boutonValider'])) { // formulaire soumis
+	// récupération des variables
+	$Nom = $_POST['TitreV'];
+	$Genre = $_POST['Genre'];
+	$Groupes = $_POST['GroupesV'];
+	$Date = $_POST['DateCreation'];
+	$Duree = $_POST['DureeV'];
+	$NomFichier = $_POST['NomFichier'];
+	$n = rand(1, 20);
 
-	$nomSerie = $_POST['nomSerie']; // recuperation de la valeur saisie
-	$verification = getSeriesByName($connexion, $nomSerie);
-
-	if($verification == FALSE || count($verification) == 0) { // pas de série avec ce nom, insertion
-		$insertion = insertSerie($connexion, $nomSerie);
-		if($insertion == TRUE) {
-			$message = "La série $nomSerie a bien été ajoutée !";
-		}
-		else {
-			$message = "Erreur lors de l'insertion de la série $nomSerie.";
-		}
-	}
-	else {
-		$message = "Une série existe déjà avec ce nom ($nomSerie).";
-	}
+	$insertion = insertChansons($connexion, $Groupes, $Nom, $Genre, $Date); //insertion dans la table chansons
+	$id = getIDwhere($connexion, $Nom);
+	$insertion = insertVersions($connexion, $id, $Duree, $Date, $n, $NomFichier); //insertion dans la table versions
 }
 
 ?>

@@ -1,5 +1,5 @@
 <?php
 $nomSite = "Deezify";
-$baseline = "Profitez des meilleures musique !";
+$baseline = "Profitez des meilleures musiques !";
 
 ?>

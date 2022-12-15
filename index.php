@@ -1,12 +1,17 @@
+<!-- MEDINA Solène 12209453
+TRAVARD Jules 12007099 -->
+
+
 <?php
 session_start(); // démarre ou reprend une session
 ini_set('display_errors', 1); // affiche les erreurs (au cas où)
 ini_set('display_startup_errors', 1); // affiche les erreurs (au cas où)
 error_reporting(E_ALL); // affiche les erreurs (au cas où)
+require('inc/config-bd.php'); // fichier de configuration d'accès à la BD
 require('modele/modele.php'); // inclut le fichier modele
 require('inc/includes.php'); // inclut des constantes et fonctions du site (nom, slogan)
 require('inc/routes.php'); // fichiers de routes
-// $connexion = getConnexionBD(); // connexion à la BD
+$connexion = getConnexionBD(); // connexion à la BD
 ?>
 
 <!DOCTYPE html>
@@ -14,74 +19,12 @@ require('inc/routes.php'); // fichiers de routes
 <head>
     <meta charset="utf-8" />
     <title><?= $nomSite ?> </title>
-    <link href="style/style.css" ref="stylesheet" media="all" type="text/css">
+    <link rel="stylesheet" href="style/style.css">
     <!-- ajoute une image favicon (dans l'onglet du navigateur)  + en bas doit rajouter accueil site-->
-    <link rel="shortcut icon" type="image/x-icon" href="img\Deezifyblanc.png" />
-	<style>
-
-body {
-    background-color: #ffffff;
-}
-
-header,
-nav,
-main,
-footer {
-    padding: 1em 0;
-}
-
-header {
-    background-color: #ffffff;
-    text-align: center;
-    border-radius: 2em;
-}
-
-#divCentral {
-    display: flex;
-	justify-content: space-between;
-	align-items: stretch;
-    margin: auto;
-	box-sizing: border-box;
-	height: 100%;
-}
-
-nav {
-	flex : 4;
-    background-color: #d373b3;
-    padding-left: 1em;
-    padding-right: 1em;
-	margin-left: 2em;
-    line-height: 2em;
-	border-radius: 3em
-}
-
-nav a {
-    color: #b82676;
-    text-decoration: underline;
-}
-
-nav a:visited {
-    color: #612847;
-    text-decoration: none;
-}
-
-main {
-	flex : 10;
-    background-color: #EEEEEE;
-    padding-left: 6em;
-}
-
-footer {
-	display: flex;
-	justify-content: space-around;
-    background-color: #e77c31;
-    border-radius: 2em;
-}
-
-
-	</style>
+    <link rel="shortcut icon" type="image/x-icon" href="img\logoblanc2.png" />
 </head>
 <body>
+<CENTER>
     <?php include('static/header.php'); ?>
     <div id="divCentral">
         <?php include('static/menu.php'); ?>
